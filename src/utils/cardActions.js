@@ -4,8 +4,7 @@
  */
 const createDeck = () => {
   let deck = [];
-  // const suits = ['H', 'C', 'D', 'S'];
-  const suits = ['H'];    // make it shorter while developing
+  const suits = ['H', 'C', 'D', 'S'];
   const values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
   
   for ( let i=0; i< suits.length; i++) {
@@ -16,6 +15,10 @@ const createDeck = () => {
   return deck;
 }
 
+/**
+ * Removes first card from array. Returns an object containing the card and the remaining array
+ * @param {*} arr : array of strings representing playing cards
+ */
 const drawOne = (arr) => {
   if (arr.length === 0) {
     return null;
@@ -24,7 +27,18 @@ const drawOne = (arr) => {
   return { card: card, newStack: arr }
 }
 
-// let deck = createDeck();
-// console.log(drawOne(deck));
-// console.log(drawOne(deck));
-export { createDeck, drawOne };
+/**
+ * Shuffles elements in an array. Returns shuffled array.
+ * @param {*} arr
+ */
+const shuffleDeck = (arr) => {
+  let shuffled = [];
+  while (arr.length > 0 ) {
+    const index = Math.floor(Math.random() * arr.length);
+    shuffled.push(arr[index]);
+    arr.splice(index,1);
+  }
+  return shuffled;
+}
+
+export { createDeck, drawOne, shuffleDeck };

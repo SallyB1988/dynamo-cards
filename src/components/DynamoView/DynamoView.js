@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { createDeck, drawOne } from '../../utils/cardActions';
+import { createDeck, drawOne, shuffleDeck } from '../../utils/cardActions';
 import DisplayButtons from '../DisplayButtons';
 import DisplayCards from '../DisplayCards';
 
@@ -46,8 +46,18 @@ export default class DynamoView extends Component {
       disableDrawOne: true,
       disableDealAll: true,
     })
-
   }
+
+  // Reset the stack with a shuffled deck of cards
+  handleShuffle = () => {
+    const deck = shuffleDeck(createDeck());
+      this.setState({
+        stack: deck,
+        drawn: [],
+        disableDrawOne: false,
+        disableDealAll: false,
+      })
+    }
 
   render() {
     return (
@@ -55,6 +65,7 @@ export default class DynamoView extends Component {
         <DisplayButtons
           drawOne={this.handleDrawOne}
           dealAll={this.handleDealAll}
+          shuffle={this.handleShuffle}
           disableDrawOne={this.state.disableDrawOne}   
           disableDealAll={this.state.disableDealAll}   
       />

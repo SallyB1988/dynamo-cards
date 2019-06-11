@@ -23,7 +23,11 @@ export default class DisplayButtons extends Component {
             </Button>
           </Col>
           <Col md="3">
-            <Button>Shuffle</Button>
+            <Button
+              onClick={this.props.shuffle}
+            >
+              Shuffle
+            </Button>
           </Col>
         </Row>
       </div>
