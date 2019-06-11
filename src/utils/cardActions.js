@@ -41,4 +41,9 @@ const shuffleDeck = (arr) => {
   return shuffled;
 }
 
-export { createDeck, drawOne, shuffleDeck };
+// module.exports = { createDeck, drawOne, shuffleDeck };
+module.exports = {
+  createDeck,
+  drawOne,
+  shuffleDeck
+}
