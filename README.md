@@ -2,10 +2,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Card Shuffle 
 
-This project creates a deck of cards. 
-`Draw One` will pull a single card from the top of the deck and display it on the board. 
-`Deal All` will display the remaining cards in the deck on the board.
-`Shuffle` will clear the board and shuffle the deck.
+This project creates a deck of cards which can be displayed one at a time on the board. The cards may also be shuffled, and the entire deck can be displayed on the board.
+
+* `Draw One` will pull a single card from the top of the deck and display it on the board. 
+* `Deal All` will display the remaining cards in the deck on the board.
+* `Shuffle` will clear the board and shuffle the deck.
 
 To run this project locally, clone this repository. Install the project using:
 ### `npm install`
