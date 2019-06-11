@@ -4,18 +4,22 @@
  */
 const createDeck = () => {
   let deck = [];
-  const suits = ['H', 'C', 'D', 'S'];
+  // const suits = ['H', 'C', 'D', 'S'];
+  const suits = ['H'];    // make it shorter while developing
   const values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
   
   for ( let i=0; i< suits.length; i++) {
     for ( let j=0; j < values.length; j++) {
-      deck.push(values[j]+suits[i]);
+      deck.push(suits[i]+values[j]);
     }
   }
   return deck;
 }
 
 const drawOne = (arr) => {
+  if (arr.length === 0) {
+    return null;
+  }
   const card = arr.shift();
   return { card: card, newStack: arr }
 }

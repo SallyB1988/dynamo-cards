@@ -4,7 +4,6 @@ import { createDeck, drawOne } from '../../utils/cardActions';
 import DisplayButtons from '../DisplayButtons';
 import DisplayCards from '../DisplayCards';
 
-
 export default class DynamoView extends Component {
 
   constructor(props) {
@@ -13,6 +12,8 @@ export default class DynamoView extends Component {
     this.state = {
       stack: [],
       drawn: [],
+      disableDrawOne: false,
+      disableDealAll: false,
     }
   }
 
@@ -21,24 +22,43 @@ export default class DynamoView extends Component {
     this.setState({ stack: deck });
   }
 
+  // Draw one card from stack and put it in the drawn array
   handleDrawOne = () => {
+    if (this.state.stack.length === 0) return
     const { card, newStack } = drawOne(this.state.stack);
     let drawnArr = this.state.drawn;
     drawnArr.push(card);
     this.setState({ stack: newStack, drawn: drawnArr})
-    console.log(`Card Drawn: ${card}`);
-    console.log(`Stack is now: ${newStack}`);
-    console.log(this.state.stack);
-    console.log(this.state.drawn);
-
+    if (newStack.length === 0) {
+      this.setState({
+        disableDrawOne: true,
+        disableDealAll: true,
+      })
+    }
   }
 
+  // Move all remaining cards in stack to the drawn array
+  handleDealAll = () => {
+    const drawn = [...this.state.drawn, ...this.state.stack];
+    this.setState({
+      stack: [],
+      drawn: drawn,
+      disableDrawOne: true,
+      disableDealAll: true,
+    })
+
+  }
 
   render() {
     return (
       <div>
-        <DisplayButtons drawOne={this.handleDrawOne} />
-        <DisplayCards />
+        <DisplayButtons
+          drawOne={this.handleDrawOne}
+          dealAll={this.handleDealAll}
+          disableDrawOne={this.state.disableDrawOne}   
+          disableDealAll={this.state.disableDealAll}   
+      />
+        <DisplayCards cards={this.state.drawn} />
       </div>
     )
   }
