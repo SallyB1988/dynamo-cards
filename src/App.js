@@ -11,11 +11,9 @@ function App() {
           Deal the cards
         </p>
       </header>
-      <body>
       <Container>
         <DynamoView />
       </Container>
-      </body>
     </div>
   );
 }

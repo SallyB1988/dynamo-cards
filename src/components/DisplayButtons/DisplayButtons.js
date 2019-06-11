@@ -7,7 +7,7 @@ export default class DisplayButtons extends Component {
       <div>
         <Row className="justify-content-center">
           <Col md="3">
-            <Button>Draw 1</Button>
+            <Button onClick={this.props.drawOne}>Draw 1</Button>
           </Col>
           <Col md="3">
             <Button>Deal All</Button>
