@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>
-          Deal the cards
+          Deal the cards one at a time, or display the whole deck. Shuffle, and deal again!
         </p>
       </header>
       <Container>

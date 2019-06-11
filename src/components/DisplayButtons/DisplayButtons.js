@@ -5,9 +5,10 @@ export default class DisplayButtons extends Component {
   render() {
     return (
       <div>
-        <Row className="justify-content-center">
+        <Row className="justify-content-center buttonRow">
           <Col md="3">
             <Button
+              className="dynamoButton"
               onClick={this.props.drawOne}
               disabled={this.props.disableDrawOne}
             >
@@ -16,6 +17,7 @@ export default class DisplayButtons extends Component {
           </Col>
           <Col md="3">
             <Button
+              className="dynamoButton"
               onClick={this.props.dealAll}
               disabled={this.props.disableDealAll}
             >
@@ -24,6 +26,8 @@ export default class DisplayButtons extends Component {
           </Col>
           <Col md="3">
             <Button
+                          className="dynamoButton"
+
               onClick={this.props.shuffle}
             >
               Shuffle

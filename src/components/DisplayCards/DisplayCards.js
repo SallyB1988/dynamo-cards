@@ -2,13 +2,11 @@ import React from 'react';
 import { Row } from "react-bootstrap";
 
 import Cards from '../../images';
-import './cards.css';
-
 
 function DisplayCards(props) {
   const { cards } = props;
   return (
-    <Row className="my-3 justify-content-center">
+    <Row className="my-2 justify-content-center cardTable">
       {cards.map((c) => {
         return (
         <img
