@@ -25,11 +25,7 @@ export default class DisplayButtons extends Component {
             </Button>
           </Col>
           <Col md="3">
-            <Button
-                          className="dynamoButton"
-
-              onClick={this.props.shuffle}
-            >
+            <Button className="dynamoButton" onClick={this.props.shuffle}>
               Shuffle
             </Button>
           </Col>
